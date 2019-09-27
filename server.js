@@ -35,7 +35,7 @@ client.on('message', message => { //Client receives message
 
 	if (!command) return; //If the received message isn't a command, don't do anything with the message
 
-	console.log(`Command received from ${message.author.tag}: ${command.name}`); //Log command sender in console
+	console.log(`Command received from ${message.author.tag}: ${message.content}`); //Log command sender in console
 
 	//Set "guildOnly: true" in command file to block use outside of DMs
 	if (command.guildOnly && message.channel.type !== 'text') {

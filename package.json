@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "description": "A Discord bot for IB Power server.",
   "main": "server.js",
+  "author": "Gerlesh",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.4",
     "discord.js": "^11.5.1",
     "graceful-fs": "^4.2.2",
     "lowdb": "^1.0.0"
@@ -16,12 +16,14 @@
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "https://github.com/Gerlesh/ibpowerbot"
   },
   "license": "MIT",
   "keywords": [
     "node",
-    "glitch",
+    "discord",
+    "ib",
+    "mpsj",
     "express"
   ]
 }
