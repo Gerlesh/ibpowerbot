@@ -12,7 +12,7 @@ module.exports = {
 	deleteMessage: false,
 	execute(message, args) {
 		const resourcesList = new Discord.RichEmbed().setTitle('**Resources**').setDescription('The following links contain useful Resources').setColor('#62D0F6')	//Create embed template
-		for (let [name,link] of resources.entries()) {
+		for (let [name,link] of Object.entries(resources)) {
 			resourcesList.addField(name,link);
 		};
 		message.channel.send(resourcesList); //Send embed
