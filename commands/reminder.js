@@ -50,15 +50,15 @@ class Reminder {
 			};
 		};
 
-		this.timeLeft = [Math.floor(this.expires/604800000) + " weeks",Math.floor(this.expires%604800000/86400000) + " days",Math.floor(this.expires%604800000%86400000/3600000) + " hours",Math.floor(this.expires%604800000%86400000%3600000/60000) + " minutes",Math.floor(this.expires%604800000%86400000%3600000%60000/1000) + " seconds"];
+		const timeLeft = [Math.floor(this.expires/604800000) + " weeks",Math.floor(this.expires%604800000/86400000) + " days",Math.floor(this.expires%604800000%86400000/3600000) + " hours",Math.floor(this.expires%604800000%86400000%3600000/60000) + " minutes",Math.floor(this.expires%604800000%86400000%3600000%60000/1000) + " seconds"];
 
-		for (var i = this.timeLeft.length - 1; i >= 0; i--) {
-			if (parseFloat(this.timeLeft[i]) == 0) {
-				this.timeLeft.splice(i,1);
+		for (var i = timeLeft.length - 1; i >= 0; i--) {
+			if (parseFloat(timeLeft[i]) == 0) {
+				timeLeft.splice(i,1);
 			};
 		};
 
-		this.timeLeft.join(', ');
+		this.timeLeft = timeLeft.join(', ');
 	};
 };
 
