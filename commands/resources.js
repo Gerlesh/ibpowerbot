@@ -3,7 +3,7 @@ const resources = require('../resources.json');
 
 module.exports = {
 	name: 'resources', //Name of command
-	description: 'Provides links for useful IB Resources.', //Description of command
+	description: 'Provides links for useful Resources.', //Description of command
 	args: false, //Arguments necessary? (true/false)
 	usage: '', //Optional/necessary arguments
 	guildOnly: false, //Server only? (true/false)
