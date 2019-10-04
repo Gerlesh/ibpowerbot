@@ -1,5 +1,8 @@
 {
-  "prefix": "-",
-  "blocked": [],
-  "mods": []
+	"prefix": "-",
+	"token": "bot_token",
+	"mysql": {
+		"user": "your_username",
+		"password": "your_password"
+	}
 }

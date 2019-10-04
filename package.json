@@ -1,29 +1,21 @@
 {
-  "name": "ibpowerbot",
-  "version": "0.0.1",
-  "description": "A Discord bot for IB Power server.",
+  "name": "ib-power-bot",
+  "version": "1.0.0",
+  "description": "Bot for IB Power Server",
   "main": "server.js",
-  "author": "Gerlesh",
+  "directories": {
+    "commands": "commands"
+  },
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "lowdb": "^1.0.0",
+    "urban": "^0.3.2",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "start": "node server.js"
   },
-  "dependencies": {
-    "discord.js": "^11.5.1",
-    "graceful-fs": "^4.2.2",
-    "lowdb": "^1.0.0"
-  },
-  "engines": {
-    "node": "8.x"
-  },
-  "repository": {
-    "url": "https://github.com/Gerlesh/ibpowerbot"
-  },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "discord",
-    "ib",
-    "mpsj",
-    "express"
-  ]
+  "author": "Gerlesh",
+  "license": "MIT"
 }

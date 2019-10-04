@@ -8,8 +8,7 @@ module.exports = {
 	usage: '<optional command>', //Optional/necessary arguments
 	guildOnly: true, //Server only? (true/false)
 	cooldown: 3, //Cooldown in seconds for command
-	aliases: ['commands','q','?'], //Other possible ways to call command, written in '' marks and separated by ,
-  deleteMessage: false,
+	aliases: ['commands','q'], //Other possible ways to call command, written in '' marks and separated by ,
 	execute(message, args) {
 		const { commands } = message.client; //Obtain command list from main bot file
 

@@ -7,11 +7,10 @@ module.exports = {
 	usage: '<role>', //Optional/necessary arguments
 	guildOnly: true, //Server only? (true/false)
 	cooldown: 3, //Cooldown in seconds for command
-	aliases: ['r'], //Other possible ways to call command, written in '' marks and separated by ,
-  deleteMessage: false,
+	aliases: [], //Other possible ways to call command, written in '' marks and separated by ,
 	execute(message, args) {
 		const roleQuery = args.join(' ');
-		const role = message.guild.roles.find(x => x.name.toLowerCase() == roleQuery.toLowerCase());
+		const role = message.guild.roles.find('name',roleQuery)
 
 		if (role) {
 			if (role.editable) {
@@ -19,19 +18,11 @@ module.exports = {
 					if (message.member.roles.has(role.id)) {
 						message.member.removeRole(role);
 		
-            console.log(`Role "${role.name}" given to ${message.author.tag}.`);
-            
-						if (message.channel.id != "541084422808797184") {
-              message.channel.send("Role removed");
-            };
+						message.channel.send("Role removed");
 					} else {
 						message.member.addRole(role);
 							
-            console.log(`Role "${role.name}" taken away from ${message.author.tag}.`);
-            
-						if (message.channel.id != "541084422808797184") {
-              message.channel.send("Role added");
-            };
+						message.channel.send("Role added");
 					};
 				} else {
 					message.channel.send("You can't give yourself that role!");
