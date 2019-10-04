@@ -1,4 +1,4 @@
-IB Power Bot
+White Power Bot
 ============
 
-Discord bot for IB Power server
+Discord bot for White Power server
