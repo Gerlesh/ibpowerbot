@@ -1,16 +1,13 @@
-const mysql = require('mysql');
 const Discord = require('discord.js');
-const config = require('../config');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const _ = require('lodash');
 
-const pool  = mysql.createPool({
-  host            : 'localhost',
-  user            : config.mysql.user,
-  password        : config.mysql.password,
-  database        : 'hw'
-});
+const adapter = new FileSync('hw.json');
+const hw = low(adapter);
+
+hw.defaults({  })
+	.write();
 
 module.exports = {
 	name: 'homework', //Name of command
@@ -22,8 +19,6 @@ module.exports = {
 	aliases: ['hw','assignments','work'], //Other possible ways to call command, written in '' marks and separated by ,
   deleteMessage: false,
 	execute(message, args) {
-		connection.connect()
-
 		if (args.length < 1) {
 			const teachers = _.keys(hw.__wrapped__);
 
@@ -33,7 +28,7 @@ module.exports = {
 
 			return message.channel.send(embed);
 		} else {
-			const teacher = args.shift().toLowerCase(); //teacher (in lowercase) is the first argument; remove it from the arguments list
+			const teacher = args.shift().toLowerCase(); //teacher (in lowercase) is the first argument; remove it from the arguments list 
 			const teacherName = teacher.replace(/^\w/, c => c.toUpperCase()); //teacherName is teacher with a capital first letter
 
 			function sendHomeworkEmbed(msg) {
@@ -45,13 +40,13 @@ module.exports = {
 
 			switch (args[0]) {
 				case 'set': //If subcommand is 'set'
-					if (args.length < 2) {
+					if (args.length < 2) { 
 						message.channel.send(`Please provide homework to set for ${teacherName}.`); //If no homework provided, ask for it from command sender
 
 						break;
 					};
 
-					const homeworkSet = message.content.substring(message.content.indexOf(args[1])); //homework is everything starting from the
+					const homeworkSet = message.content.substring(message.content.indexOf(args[1])); //homework is everything starting from the 
 
 					hw.set(teacher,homeworkSet).write(); //Add teacher with homework to hw database
 
@@ -61,7 +56,7 @@ module.exports = {
 					break;
 
 				case 'add': //If subcommand is 'add'
-					if (args.length < 2) {
+					if (args.length < 2) { 
 						message.channel.send(`Please provide homework to add for ${teacherName}.`); //If no homework provided, ask for it from command sender
 
 						break;
@@ -101,4 +96,4 @@ module.exports = {
 			};
 		}
 	}
-};
+}; 
