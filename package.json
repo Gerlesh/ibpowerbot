@@ -1,0 +1,20 @@
+{
+  "name": "ib-power-bot",
+  "version": "1.0.0",
+  "description": "Bot for IB Power Server",
+  "main": "server.js",
+  "directories": {
+    "commands": "commands"
+  },
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "lowdb": "^1.0.0",
+    "urban": "^0.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Gerlesh",
+  "license": "MIT"
+}
