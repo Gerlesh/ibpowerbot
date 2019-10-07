@@ -1,6 +1,6 @@
 {
   "name": "ib-power-bot",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Bot for IB Power Server",
   "main": "server.js",
   "directories": {
