@@ -14,7 +14,7 @@ module.exports = {
 
 		if (!args.length) { //If no command is specified
 			const generalHelp = new Discord.RichEmbed().setTitle("**Commands**").setDescription("**Use -help [command] to get help on specific commands!**").setColor('#62D0F6'); //Create general embed
-			commands.forEach(function addCommandsToEmbed(command) { 
+			commands.forEach(function addCommandsToEmbed(command) {
 				generalHelp.addField(`-${command.name} ${command.usage}`,command.description); //Add a field for each command file containing its name and usage as the field name and its description as the field value
 			});
 			return message.channel.send(generalHelp); //Send embed
@@ -22,7 +22,7 @@ module.exports = {
 
 		const name = args[0].toLowerCase(); //Requested command name
 		const command = commands.get(name) || commands.find(cmd => cmd.aliases && cmd.aliases.includes(name)); //Retrieve information from requested command file and check command file for matching aliases
-		
+
 		if (!command) {
 		return message.reply('That\'s not a valid command.'); //If the requested command doesn't exist indicate to command sender that it is invalid
 		};

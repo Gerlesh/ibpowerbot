@@ -23,7 +23,7 @@ client.on('message', message => { //Client receives message
 
 	const args = message.content.slice(prefix.length).split(/ +/); //Arguments are separated by one or more spaces
 	const commandName = args.shift().toLowerCase(); //The command is the first argument in lowercase and the arguments are all the other arguments
-	
+
 	//Set "aliases: ['<alias1>', '<alias2>']" in command file to enable aliases
 	const command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName)); //Retrieve command file based on received command compared to command names and aliases in files
@@ -55,7 +55,7 @@ client.on('message', message => { //Client receives message
 		cooldowns.set(command.name, new Discord.Collection()); //If cooldowns collection doesn't have the command, add it
 	};
 
-	const now = Date.now(); //Create timestamp 
+	const now = Date.now(); //Create timestamp
 	const timestamps = cooldowns.get(command.name); //Retrieves author cooldown
 	const cooldownAmount = (command.cooldown || 3) * 1000; //Retrieve command cooldown or default to 3 seconds
 
@@ -67,7 +67,7 @@ client.on('message', message => { //Client receives message
 			return message.reply(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`); //Indicates cooldown not over yet
 		};
 	};
-	
+
 	timestamps.set(message.author.id, now); //Sets the timestamp on the author to "now"
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
