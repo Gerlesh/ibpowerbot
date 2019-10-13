@@ -13,7 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server.js"
+    "start": "if exist \"run.bat\" (call run.bat) else (call installer.bat)"
   },
   "author": "Gerlesh",
   "license": "MIT"
