@@ -50,11 +50,11 @@ module.exports = {
 						break;
 					};
 
-					const homeworkSet = message.content.substring(message.content.indexOf(args[1])); //homework is everything starting from the
+					const homeworkSet = message.content.substring(message.content.indexOf('set') + 4); //homework is everything starting from the
 
 					hw.set(teacher,homeworkSet).write(); //Add teacher with homework to hw database
 
-          console.log(`Homework for ${teacherName} set to:\n${hw.get(teacher)}`);
+          		console.log(`Homework for ${teacherName} set to:\n${hw.get(teacher)}`);
 					sendHomeworkEmbed(`Homework for ${teacherName} set!`);
 
 					break;
@@ -65,14 +65,14 @@ module.exports = {
 
 						break;
 					};
-					const homeworkAdd = message.content.substring(message.content.indexOf(args[1]));
+					const homeworkAdd = message.content.substring(message.content.indexOf('add') + 4);
 					if (_.keys(hw.__wrapped__).includes(teacher)) {
 						hw.update(teacher,homework => homework.concat('\n',homeworkAdd)).write();
 					} else {
 						hw.set(teacher,homeworkAdd).write();
 					};
 
-          console.log(`Homework for ${teacherName} set to:\n${hw.get(teacher)}`);
+          		console.log(`Homework for ${teacherName} set to:\n${hw.get(teacher)}`);
 					sendHomeworkEmbed(`Homework for ${teacherName} updated!`);
 
 					break;
@@ -80,7 +80,7 @@ module.exports = {
 				case 'clear': //If subcommand is 'clear'
 					hw.unset(teacher).write();
 
-          console.log(`Homework for ${teacherName} cleared`);
+          		console.log(`Homework for ${teacherName} cleared`);
 					message.channel.send(`Homework for ${teacherName} cleared`);
 
 					break;
