@@ -8,12 +8,11 @@
   },
   "dependencies": {
     "discord.js": "^11.4.2",
-    "lowdb": "^1.0.0",
-    "urban": "^0.3.2"
+    "lowdb": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "if exist \"run.bat\" (call run.bat) else (call installer.bat)"
+    "start": "node server.js"
   },
   "author": "Gerlesh",
   "license": "MIT"
