@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
+const config = require('./config.json');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -21,9 +21,9 @@ client.once('ready', () => {
 client.on('message', message => { //Client receives message
 	if (message.channel.id == '541084422808797184' && !config.mods.includes(message.author.id)) message.delete();
 
-	if (!message.content.startsWith(prefix) || message.author.bot) return; //If the received message doesn't start with the prefix or was sent by a bot, don't do anything with the message
+	if (!message.content.startsWith(config.prefix) || message.author.bot) return; //If the received message doesn't start with the prefix or was sent by a bot, don't do anything with the message
 
-	const args = message.content.slice(prefix.length).split(/ +/); //Arguments are separated by one or more spaces
+	const args = message.content.slice(config.prefix.length).split(/ +/); //Arguments are separated by one or more spaces
 	const commandName = args.shift().toLowerCase(); //The command is the first argument in lowercase and the arguments are all the other arguments
 
 	//Set "aliases: ['<alias1>', '<alias2>']" in command file to enable aliases
@@ -46,7 +46,7 @@ client.on('message', message => { //Client receives message
 
 		//Provide a "usage: <usage>" in command file to explain command usage
 		if (command.usage) {
-			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``; //If there is a command usage available for the command, indicate to the command sender (added to reply message)
+			reply += `\nThe proper usage would be: \`${config.prefix}${command.name} ${command.usage}\``; //If there is a command usage available for the command, indicate to the command sender (added to reply message)
 		};
 
 		return message.channel.send(reply); //Send reply message
@@ -83,4 +83,4 @@ client.on('message', message => { //Client receives message
 
 client.on('error',console.error);
 
-client.login(token); //Login token to access client
+client.login(config.token); //Login token to access client
