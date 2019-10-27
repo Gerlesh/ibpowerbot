@@ -11,7 +11,7 @@ hw.defaults({  })
 
 module.exports = {
 	name: 'homework', //Name of command
-	description: 'Set and view homework for a teacher. Use `set` to provide homework for a teacher and `clear` to clear all the teacher\'s homework', //Description of command
+	description: 'Set and view homework for a teacher. Use `set` to provide homework for a teacher, `add` to add homework to a teacher, and `clear` to clear all the teacher\'s homework', //Description of command
 	args: false, //Arguments necessary? (true/false)
 	usage: '<teacher\'s last name> <optional clear/set/add> <if set or add, add homework here>', //Optional/necessary arguments
 	guildOnly: false, //Server only? (true/false)
