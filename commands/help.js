@@ -28,9 +28,9 @@ module.exports = {
 		};
 
 		const specificHelp = new Discord.RichEmbed().setTitle(`**Command: ${command.name}**`).setColor('#62D0F6'); //Create embed for the command
-		if (command.description) {specificHelp.setDescription(command.description)}; //If the command has a description add it to the embed description
-		if (command.usage) {specificHelp.addField(`Usage:`,`-${command.name} ${command.usage}`)}; //If the command has a usage add a field to the embed showing it
-		if (command.aliases) {specificHelp.addField(`Aliases:`,`-${command.aliases.join(`, -`)}`)}; //If the command has aliases add a field to the embed showing them
+		if (command.description.length > 0) {specificHelp.setDescription(command.description)}; //If the command has a description add it to the embed description
+		if (command.usage.length > 0) {specificHelp.addField(`Usage:`,`-${command.name} ${command.usage}`)}; //If the command has a usage add a field to the embed showing it
+		if (command.aliases.length > 0) {specificHelp.addField(`Aliases:`,`-${command.aliases.join(`, -`)}`)}; //If the command has aliases add a field to the embed showing them
 
 		message.channel.send(specificHelp); //Send the embed
 	}
