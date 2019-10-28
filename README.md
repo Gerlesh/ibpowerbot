@@ -17,7 +17,7 @@ All example commands are using ```-``` as the bot prefix.
 ![](assets/homework.png)
 - ```-homework <teacher>``` will show homework for a specific teacher.\
 ![](assets/homework2.png)
-- ```-homework <teacher> add``` will add homework to a teacher.\
+- ```-homework <teacher> add <homework>``` will add homework to a teacher.\
 ![](assets/homeworkadd.png)
 - ```-homework <teacher> clear``` will clear all homework from a teacher.\
 ![](assets/homeworkclear.png)
