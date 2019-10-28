@@ -34,12 +34,6 @@ All example commands are using ```-``` as the bot prefix.
 - ```-role <role>``` will add/remove roles from the command user (case sensitive). **IMPORTANT: THIS COMMAND WILL ADD/REMOVE ANY DEFAULT COLOURED ROLE BELOW THE BOT'S HIGHEST ROLE. MAKE SURE ANY ROLES THAT FIT THESE CRITERIA ARE CHANGED IF YOU DON'T WANT EVERYONE TO HAVE ACCESS TO IT**\
 ![](assets/role.png)
 
-### Urban Command
-- ```-urban <search term>``` will return an Urban Dictionary result for the search term specified.
-![](assets/urban.png)
-- ```-urban``` will return a random Urban Dictionary result.
-![](assets/urban2.png)
-
 
 ## Installation
 1. Download and install [Node.js](https://nodejs.org/en/).
