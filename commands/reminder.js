@@ -50,7 +50,7 @@ class Reminder {
 			};
 		};
 
-		const timeLeft = [Math.floor(this.expires/604800000) + " weeks",Math.floor(this.expires%604800000/86400000) + " days",Math.floor(this.expires%604800000%86400000/3600000) + " hours",Math.floor(this.expires%604800000%86400000%3600000/60000) + " minutes",Math.floor(this.expires%604800000%86400000%3600000%60000/1000) + " seconds"];
+		const timeLeft = [Math.floor(this.expires/604800000) + " week(s)",Math.floor(this.expires%604800000/86400000) + " day(s)",Math.floor(this.expires%604800000%86400000/3600000) + " hour(s)",Math.floor(this.expires%604800000%86400000%3600000/60000) + " minute(s)",Math.floor(this.expires%604800000%86400000%3600000%60000/1000) + " second(s)"];
 
 		for (var i = timeLeft.length - 1; i >= 0; i--) {
 			if (parseFloat(timeLeft[i]) == 0) {
