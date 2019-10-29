@@ -14,7 +14,7 @@ for (const file of commandFiles) {
 
 const cooldowns = new Discord.Collection();
 
-client.once('ready', () => {
+client.on('ready', () => {
 	client.user.setPresence({ game: {name:'-help'} });
 	console.log('Ready!'); //When the client is ready, log "Ready!" in console
 });
