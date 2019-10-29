@@ -67,12 +67,16 @@ module.exports = {
 	description: 'Reminds you after a set amount of time\nWARNING: If the bot dies for any period of time, the reminder will not be carried out.', //Description of Command
 	args: true, //Arguments necessary? (true/false)
 	usage: '<time until reply> <message>', //Optional/necessary arguments
-	guildOnly: false, //Server only? (true/false)
+	guildOnly: true, //Server only? (true/false)
 	cooldown: 10, //Cooldown in seconds for command
 	aliases: ['remind','r'], //Other possible ways to call command, written in '' marks and separated by ,
 	execute(message, args) {
 		const reminder = new Reminder(args[0],message.content.slice(message.content.indexOf(args[1])));
-		message.channel.send(`In ${reminder.timeLeft}: ${reminder.reminder}`);
-		setTimeout(function() {message.reply(reminder.timeLeft + " ago: " + reminder.reminder)},reminder.expires);
+		if (reminder.timeLeft.length > 0) {
+			message.channel.send(`In ${reminder.timeLeft}: ${reminder.reminder}`);
+			setTimeout(function() {message.reply(reminder.timeLeft + " ago: " + reminder.reminder + "\n\nhttps://discordapp.com/channels/" + message.guild.id + "/" + message.channel.id + "/" + message.id)},reminder.expires);
+		} else {
+			message.channel.send(`Please provide a valid time (with units, i.e. \`-reminder 5m wake up\`)`);
+		};
 	}
 };
