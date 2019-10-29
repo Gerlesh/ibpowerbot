@@ -71,10 +71,15 @@ module.exports = {
 	cooldown: 10, //Cooldown in seconds for command
 	aliases: ['remind','r'], //Other possible ways to call command, written in '' marks and separated by ,
 	execute(message, args) {
-		const reminder = new Reminder(args[0],message.content.slice(message.content.indexOf(args[1])));
+		const reminder = new Reminder(args[0],args.length > 1 ? message.content.slice(message.content.indexOf(args[1])) : '');
 		if (reminder.timeLeft.length > 0) {
-			message.channel.send(`In ${reminder.timeLeft}: ${reminder.reminder}`);
+			if (reminder.reminder.length > 0){
+				message.channel.send(`Reminder set for ${reminder.timeLeft} from now: ${reminder.reminder}`);
+			} else {
+				message.channel.send(`Reminder set for ${reminder.timeLeft} from now!`);
+			};
 			setTimeout(function() {message.reply(reminder.timeLeft + " ago: " + reminder.reminder + "\n\nhttps://discordapp.com/channels/" + message.guild.id + "/" + message.channel.id + "/" + message.id)},reminder.expires);
+
 		} else {
 			message.channel.send(`Please provide a valid time (with units, i.e. \`-reminder 5m wake up\`)`);
 		};
