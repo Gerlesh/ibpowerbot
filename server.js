@@ -20,7 +20,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => { //Client receives message
-	if (message.channel.id == '541084422808797184' && !config.mods.includes(message.author.id)) message.delete();
+	if (message.channel.id == '541084422808797184' && !message.member.roles.has(config.mod)) message.delete();
 
 	if (!message.content.startsWith(config.prefix) || message.author.bot) return; //If the received message doesn't start with the prefix or was sent by a bot, don't do anything with the message
 
