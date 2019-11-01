@@ -54,7 +54,7 @@ module.exports = {
 
 					hw.set(teacher,homeworkSet).write(); //Add teacher with homework to hw database
 
-          		console.log(`Homework for ${teacherName} set to:\n${hw.get(teacher)}`);
+          			console.log(`Homework for ${teacherName} set to:\n${hw.get(teacher)}`);
 					sendHomeworkEmbed(`Homework for ${teacherName} set!`);
 
 					break;
